@@ -1,2 +1,8 @@
 timer
 =====
+
+
+requirements
+============
+* gtk
+* pyaudio
