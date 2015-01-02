@@ -6,6 +6,8 @@ from itertools import product
 
 from collections import Iterable
 
+import os
+
 import argparse
 
 import gtk
@@ -140,7 +142,15 @@ def player(filename, chunk_size=1024):
 def main(minutes):
     assert(minutes >= 1)
 
-    def done(alarm_player=player('sounds/truck_horn.wav')):
+    def done(
+        alarm_player=player(
+            os.path.join(
+                os.path.dirname(os.path.realpath(__file__)),
+                'sounds',
+                'truck_horn.wav',
+            )
+        )
+    ):
         alarm_player()
 
     # renderer = partial(apply, "{}:{}".format)
